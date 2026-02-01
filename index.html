@@ -1,111 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>My Valentine ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f3c6c6;
-      font-family: "Segoe UI", sans-serif;
-    }
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3c6c6;
+    font-family: "Segoe UI", sans-serif;
+  }
  
-    .card {
-      background: #f6fbfb;
-      padding: 40px 30px;
-      border-radius: 16px;
-      text-align: center;
-      width: 320px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-      animation: fadeIn 0.6s ease;
-    }
+  .card {
+    background: #f6fbfb;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
  
-    h2 {
-      color: #c94a4a;
-      margin-bottom: 10px;
-    }
+  h2 {
+    color: #c94a4a;
+  }
  
-    p {
-      font-size: 18px;
-      color: #444;
-      min-height: 40px;
-    }
+  p {
+    font-size: 18px;
+    color: #444;
+    min-height: 50px;
+  }
  
-    button {
-      margin-top: 20px;
-      padding: 10px 22px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: #c94a4a;
-      color: white;
-      transition: transform 0.2s ease;
-    }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+  }
  
-    button:hover {
-      transform: scale(1.05);
-    }
+  #yesBtn {
+    background: #c94a4a;
+    color: white;
+  }
  
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
+  #noBtn {
+    background: #aaa;
+    position: relative;
+  }
+ 
+  #nextBtn {
+    background: #c94a4a;
+    color: white;
+    display: none;
+  }
+</style>
 </head>
  
 <body>
  
-  <div class="card">
-    <h2 id="title">Hey Love ❤️</h2>
-    <p id="text"> Will you be my Valentine Kartikey Dixit?</p>
-    <div class="buttons">
-    <button id="yesBtn" onclick="yesClicked()">Yes 💖</button>
-    <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+<div class="card">
+  <h2 id="title">Hey Love ❤️</h2>
+  <p id="text">Will you be my Valentine?</p>
+ 
+  <div id="choiceButtons">
+    <button id="yesBtn">Yes 💖</button>
+    <button id="noBtn">No 🙈</button>
   </div>
-  </div>
  
-  <script>
-    const messages = [
-     "Day 1 💖 Write me one sentence that starts with ‘If you were here right now…’",
-    "Day 2 💌 A mini love letter—just a few heartfelt lines 🥰",
-    "Day 3 🤗 Tell me what meal you’d cook for me if we were together",
-    "Day 4 😘 suggest a movie we can watch at the same time",
-    "Day 5 🎵 Share a song that reminds you of us",
-    "Day 6 😍 Challenge me to a fun online game or quiz",
-    "Day 7 📸 Send me a cute selfie",
-    "Day 8 💬 Plan a date night idea for us when we meet",
-    "Day 9 🥹 Record yourself humming or singing a song for me",
-    "Day 10 😏 Flirt with me extra shamelessly",
-    "Day 11 💞 Send me a photo of something around you that reminds you of me",
-    "Day 12 🌹 Doodle or sketch something silly and send it to mep",
-    "Day 13 💘 Tomorrow is the big day…Show how romantic you can go virtually 😘"
-    ];
+  <button id="nextBtn">Next 💝</button>
+</div>
  
-    let day = 0;
+<script>
+  const messages = [
+    "Day 1 ❤️ Write me one sentence that starts with ‘If you were here…’",
+    "Day 2 💌 A mini love letter",
+    "Day 3 🍽 Tell me what you’d cook for me",
+    "Day 4 🎬 Pick a movie for us",
+    "Day 5 🎵 Share a song",
+    "Day 6 🎮 Challenge me to a game",
+    "Day 7 📸 Send a cute selfie",
+    "Day 8 🌙 Plan a date night",
+    "Day 9 🎤 Sing or hum for me",
+    "Day 10 😘 Flirt shamelessly",
+    "Day 11 📷 Send a random photo",
+    "Day 12 🎨 Doodle something silly",
+    "Day 13 ❤️ Tomorrow is OUR day"
+  ];
  
-    const title = document.getElementById("title");
-    const text = document.getElementById("text");
-    const button = document.getElementById("next");
+  let day = 0;
  
-    button.onclick = () => {
-      if (day < messages.length) {
-        day++;
-        title.innerText = `Day ${day} With You ❤️`;
-        text.innerText = messages[day - 1];
-      }
+  const title = document.getElementById("title");
+  const text = document.getElementById("text");
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const choiceButtons = document.getElementById("choiceButtons");
  
-      if (day === messages.length) {
-        button.style.display = "none";
-      }
-    };
-  </script>
+  yesBtn.onclick = () => {
+    choiceButtons.style.display = "none";
+    nextBtn.style.display = "inline-block";
+    showNextDay();
+  };
+ 
+  nextBtn.onclick = showNextDay;
+ 
+  function showNextDay() {
+    if (day < messages.length) {
+      day++;
+      title.innerText = `Day ${day} With You ❤️`;
+      text.innerText = messages[day - 1];
+    } else {
+      text.innerText = "That’s all 💖 Thank you for choosing me.";
+      nextBtn.style.display = "none";
+    }
+  }
+ 
+  noBtn.onmouseover = () => {
+    const x = Math.random() * 120 - 60;
+    const y = Math.random() * 120 - 60;
+    noBtn.style.transform = `translate(${x}px, ${y}px)`;
+  };
+</script>
  
 </body>
 </html>
