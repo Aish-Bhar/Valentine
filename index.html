@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Valentine ❤️</title>
+<title>My Valentine 💙💖</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+
 <style>
   body {
     margin: 0;
@@ -12,29 +12,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f3c6c6;
+    background: linear-gradient(135deg, #ffb6c1, #87cefa);
     font-family: "Segoe UI", sans-serif;
   }
- 
+
   .card {
-    background: #f6fbfb;
+    background: #ffffff;
     padding: 40px 30px;
     border-radius: 16px;
     text-align: center;
-    width: 320px;
+    width: 340px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   }
- 
+
   h2 {
     color: #c94a4a;
   }
- 
+
   p {
     font-size: 18px;
-    color: #444;
-    min-height: 50px;
+    color: #333;
+    min-height: 60px;
   }
- 
+
   button {
     padding: 10px 20px;
     font-size: 16px;
@@ -43,17 +43,18 @@
     cursor: pointer;
     margin: 10px;
   }
- 
+
   #yesBtn {
-    background: #c94a4a;
+    background: #ff69b4;
     color: white;
   }
- 
+
   #noBtn {
-    background: #aaa;
+    background: #87cefa;
+    color: white;
     position: relative;
   }
- 
+
   #nextBtn {
     background: #c94a4a;
     color: white;
@@ -61,72 +62,64 @@
   }
 </style>
 </head>
- 
+
 <body>
- 
+
 <div class="card">
-  <h2 id="title">Sunoo Chunmun jii 😍</h2>
-  <p id="text">Will you be my Valentine Kartikey Dixit ?</p>
- 
+  <h2 id="title">Sunoo Boo 💖💙</h2>
+  <p id="text">Will you be my Valentine Aditi Kadam ?</p>
+
   <div id="choiceButtons">
     <button id="yesBtn">Yes 💖</button>
     <button id="noBtn">No 🙈</button>
   </div>
- 
-  <button id="nextBtn">Go Onn </button>
+
+  <button id="nextBtn">Go Onn ➡️</button>
 </div>
- 
+
 <script>
   const messages = [
-    "Write me one sentence that starts with ‘If you were here…’ ❤️ ",
-    "A mini love letter 💌 ",
-    "Tell me what you’d cook for me 🍽" ,
-    "Pick a movie for us 🎬 ",
-    "Share a song 🎵 ",
-    "Challenge me to a game 🎮 ",
-    "Send a cute selfie 📸 ",
-    "Plan a date night for when you meet me 🌙 ",
-    "Sing or hum for me 🎤 ",
-    "Flirt extra shamelessly 😉 ",
-    "Send a random photo that makes you remember me 📷 ",
-    "Doodle something silly 🎨 ",
-    "Show me how romantic you can be virtually 🙈 "
+    "Feb 10 💌 — Write me a sweet note starting with ‘I love it when you…’",
+    "Feb 11 🎶 — Lets sing a song that makes you think of us",
+    "Feb 12 🍴 — Plan a cozy dinner date menu for the two of us so we can cook together",
+    "Feb 13 🎬 — Pick a movie we’d watch cuddled together tonight",
+    "Feb 14 ❤️ — Happy Valentine’s Day Boo!💞 Tell me how you want our perfect day together"
   ];
- 
+
   let day = 0;
- 
+
   const title = document.getElementById("title");
   const text = document.getElementById("text");
   const yesBtn = document.getElementById("yesBtn");
   const noBtn = document.getElementById("noBtn");
   const nextBtn = document.getElementById("nextBtn");
   const choiceButtons = document.getElementById("choiceButtons");
- 
+
   yesBtn.onclick = () => {
     choiceButtons.style.display = "none";
     nextBtn.style.display = "inline-block";
     showNextDay();
   };
- 
+
   nextBtn.onclick = showNextDay;
- 
+
   function showNextDay() {
     if (day < messages.length) {
+      title.innerText = `Day ${day + 1} With You 💙💖`;
+      text.innerText = messages[day];
       day++;
-      title.innerText = `Day ${day} With You 🤭`;
-      text.innerText = messages[day - 1];
     } else {
-      text.innerText = "That’s all 😁!!";
+      text.innerText = "That’s all, but my love for you never ends 💕";
       nextBtn.style.display = "none";
     }
   }
- 
+
   noBtn.onmouseover = () => {
     const x = Math.random() * 120 - 60;
     const y = Math.random() * 120 - 60;
     noBtn.style.transform = `translate(${x}px, ${y}px)`;
   };
 </script>
- 
+
 </body>
 </html>
